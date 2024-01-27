@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Python Flask MongoDB CRUD Form</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <style>
+        table {margin: auto;}
+    </style>
+  </head>
+  <body>
+    <form method="POST" action="/save">
+      <table class="table-auto table-center ">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Field</th>
+            <th class="px-4 py-2">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-4 py-2">Name</td>
+            <td class="border px-4 py-2">
+              <input name="emp_Name"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="emp_Name"
+                type="text"
+                placeholder="Enter your name"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2">Address</td>
+            <td class="border px-4 py-2">
+              <input name="emp_address"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="emp_address"
+                type="text"
+                placeholder="Enter your address"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2">Email</td>
+            <td class="border px-4 py-2">
+              <input name="emp_email"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="emp_email"
+                type="email"
+                placeholder="Enter your email"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="border px-4 py-2">Mobile</td>
+            <td class="border px-4 py-2">
+              <input name="emp_mobile"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="emp_mobile"
+                type="tel"
+                placeholder="Enter your mobile number"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <input value = "Create" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                
+    </form>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CRUD Operation Table</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <style>
+        table{
+            margin: auto;
+            border: 6px;
+        }
+        .container, h1{
+            margin-top: 60px;
+        }
+        #crud_btn_frm{
+            inline-size: none;
+            float:right
+        }
+    </style>
+  </head>
+  <body>
+    <div class = "container">
+        <h1 style="position:absolute; margin-top: 20px; margin-left: 35%;" class="text-center text-lg text-green">Python Flask MongoDB CRUD Application </h1>
+        
+        <form method="PUT" action="/create" >
+            <input style="margin-left: 25%;" value = "Create" type="submit" class="bg-blue-500 text-lg text-center  hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full">
+                
+        </form>
+       
+        <hr><hr>
+        <table class="table-auto table-center border-double border-4 border-indigo-600 border-black" >
+            <caption class="caption-top">
+                Table 1.1: Employee Detail Record of ABC Co. PLC.
+              </caption>
+            <thead>
+                <tr>
+                <th class="px-4 py-2">SL</th>
+                <th class="px-4 py-2">User Name</th>
+                <th class="px-4 py-2">Address</th>
+                <th class="px-4 py-2">Email</th>
+                <th class="px-4 py-2">CRUD Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in emp %}
+                <tr>
+                    <td class="border px-4 py-2"> {{e['_id']}}</td>
+                    <td class="border px-4 py-2">{{e.emp_name}}</td>
+                    <td class="border px-4 py-2">{{e.emp_addr}}</td>
+                    <td class="border px-4 py-2">{{e.emp_email}}</td>
+                    <td>
+                        <form method="POST" action="/delete/{{e._id}}"  id ="crud_btn_frm" >
+                            <input type="submit" value="Delete" class="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" 
+                                onclick="return confirm('Are you sure you want to delete this entry?')">
+                        </form>
+
+                        <form method="PUT" action="/update/{{e._id}}" id ="crud_btn_frm" >
+                            <input value = "Update" type="submit" class="bg-yellow-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                
+                        </form>
+                        <form method="PUT" action="/update/{{e._id}}"  id ="crud_btn_frm" >
+                            <input value = "View" type="submit" class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                
+                        </form>
+                    </td>
+                </tr>
+                {%endfor%}
+                </tbody>
+        </table>
+
+    </div>
+  </body>
+</html>
